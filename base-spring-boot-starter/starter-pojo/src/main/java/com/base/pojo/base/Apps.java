@@ -24,6 +24,12 @@ public class Apps {
      */
     private static final String MAPPING_PATH = "mapping.path";
 
+    /**
+     * java-版本
+     */
+    private static final String JAVA_VERSION = "1.8";
+    private static final String JAVA_VERSION_STR = "java.version";
+
     public static void setSpringProfileActive(String active) {
         if (!StringUtils.isNotBlank(System.getProperty(SPRING_PROFILE_ACTIVE))) {
             System.setProperty(SPRING_PROFILE_ACTIVE, active);
@@ -40,5 +46,12 @@ public class Apps {
         if (!StringUtils.isNotBlank(System.getProperty(MAPPING_PATH))) {
             System.setProperty(MAPPING_PATH, mappingPath);
         }
+    }
+
+    public static void setJavaVersion(String javaVersion) {
+        if (StringUtils.isBlank(javaVersion)) {
+            javaVersion = JAVA_VERSION;
+        }
+        System.setProperty(JAVA_VERSION_STR, javaVersion);
     }
 }

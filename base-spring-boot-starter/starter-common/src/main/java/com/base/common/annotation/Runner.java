@@ -25,4 +25,5 @@ public @interface Runner {
      * 这是扫描mapping的路径
      */
     String mappingPath() default "/mapping/**.xml";
+    String javaVersion() default "1.8";
 }

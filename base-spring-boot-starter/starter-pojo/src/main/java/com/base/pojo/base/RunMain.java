@@ -26,6 +26,7 @@ public class RunMain {
             Apps.setServerPort(runner.port());
             Apps.setSpringProfileActive(runner.active());
             Apps.setMybatisMappingPath(runner.mappingPath());
+            Apps.setJavaVersion(runner.javaVersion());
             SpringApplication.run(classz, args);
             long endTime = System.currentTimeMillis();
             log.info("********** 项目启动成功:{},耗时:{},端口号:{},配置:{} **********", System.getProperty("os.name"), endTime - startTime, runner.port(), runner.active());
