@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.base.common.autoconfiguration.DataSourceAutoConfiguration,\
+com.base.common.autoconfiguration.DataSourcePropertiesAutoConfiguration
