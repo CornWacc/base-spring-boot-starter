@@ -32,7 +32,7 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseResu
     public final R execute(String bieMemo, O order) {
 
         setMDC(order);
-        boolean isShowDebugLog = debugLog.equals("true") ? true : false;
+        boolean isShowDebugLog = debugLog.equals("true");
         logger.info("收到业务[{}]处理请求，请求参数：{}", bieMemo, order);
         //1.初始化result
         R result = initResult();

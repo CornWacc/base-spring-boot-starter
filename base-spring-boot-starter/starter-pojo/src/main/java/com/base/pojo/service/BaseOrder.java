@@ -1,11 +1,14 @@
 package com.base.pojo.service;
 
+import com.base.common.enums.ValidationFactory;
 import com.base.common.error.BizError;
 import com.base.common.util.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ValidatorFactory;
 import java.util.Date;
-import java.util.function.Function;
+import java.util.Set;
 
 /**
  * @author yyc
@@ -18,7 +21,7 @@ public class BaseOrder extends Base {
 
     /**
      * 业务序列号
-     * */
+     */
     private String bizNo;
 
     public String getBizNo() {
@@ -31,9 +34,10 @@ public class BaseOrder extends Base {
 
     /**
      * 生成序列号
+     *
      * @param bizName 业务名称
-     * */
-    public String makeBizNo(String bizName){
+     */
+    public String makeBizNo(String bizName) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(bizName);
         stringBuilder.append(DateUtils.dateForMateForConnect(new Date()));
@@ -42,10 +46,21 @@ public class BaseOrder extends Base {
 
     /**
      * 校验序列号
-     * */
-    public void checkBizNo(){
-        if(StringUtils.isBlank(getBizNo())){
+     */
+    public void checkBizNo() {
+        if (StringUtils.isBlank(getBizNo())) {
             throw new BizError("服务序列号不能为空!");
+        }
+    }
+
+    public void check() {
+
+        ValidatorFactory validatorFactory = ValidationFactory.INSTANCE.getValidatorFactory();
+        Set<ConstraintViolation<BaseOrder>> messages = validatorFactory.getValidator().validate(this);
+        if (null != messages && !messages.isEmpty()) {
+            for (ConstraintViolation<BaseOrder> message : messages) {
+                throw new RuntimeException(message.getMessage());
+            }
         }
     }
 
