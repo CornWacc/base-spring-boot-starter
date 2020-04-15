@@ -62,6 +62,7 @@ public class BaseOrder extends Base {
                 throw new RuntimeException(message.getMessage());
             }
         }
+        checkBizNo();
     }
 
 }
