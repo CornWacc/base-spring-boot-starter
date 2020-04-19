@@ -59,7 +59,7 @@ public class BaseOrder extends Base {
         Set<ConstraintViolation<BaseOrder>> messages = validatorFactory.getValidator().validate(this);
         if (null != messages && !messages.isEmpty()) {
             for (ConstraintViolation<BaseOrder> message : messages) {
-                throw new RuntimeException(message.getMessage());
+                throw new BizError(message.getMessage());
             }
         }
         checkBizNo();

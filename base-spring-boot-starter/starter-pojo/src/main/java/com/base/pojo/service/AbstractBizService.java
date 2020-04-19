@@ -77,11 +77,12 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseResu
 
         } catch (Exception e) {
 
-            //系统未知错误，抛出详细异常信息
-            logger.error("系统未知错误[入参：{}，msgError：{}]", order, e.getMessage());
             result.setStatus(StatusEnum.FAIL);
             result.setMsg(StatusEnum.FAIL.getMsg());
             result.setBizCode(StatusEnum.FAIL.getBizCode());
+            //系统未知错误，抛出详细异常信息
+            logger.error("系统未知错误[入参：{}，msgError：{}]", order, e.getMessage());
+
             if (isShowDebugLog) {
                 e.printStackTrace();
             }
@@ -185,9 +186,14 @@ public abstract class AbstractBizService<O extends BaseOrder, R extends BaseResu
         public Void doInTransaction(TransactionStatus transactionStatus) {
             try {
                 appBiz(order, result);
+            } catch (BizError error) {
+                transactionStatus.setRollbackOnly();
+                throw new BizError(error.getMessage());
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
-                throw e;
+                logger.info("事务执行过程中出现位置异常[{}]",e.getCause());
+                e.printStackTrace();
+                throw new RuntimeException(StatusEnum.FAIL.getMsg());
             }
             return null;
         }
