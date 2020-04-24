@@ -19,6 +19,11 @@ public class PageEntity extends Base {
 
     private Integer pageSize = DEFAULT_PAGE_SIZE;
 
+    public PageEntity(Integer pageNum, Integer pageSize) {
+        this.pageNum = pageNum;
+        this.pageSize = pageSize;
+    }
+
     public Integer getPageNum() {
         return pageNum;
     }
