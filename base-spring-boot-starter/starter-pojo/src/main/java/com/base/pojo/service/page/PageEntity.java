@@ -11,13 +11,9 @@ public class PageEntity extends Base {
 
     private static final long serialVersionUID = 1839213217457599225L;
 
-    private static final Integer DEFAULT_PAGE_NUM = 1;
+    private Integer pageNum;
 
-    private static final Integer DEFAULT_PAGE_SIZE = 10;
-
-    private Integer pageNum = DEFAULT_PAGE_NUM;
-
-    private Integer pageSize = DEFAULT_PAGE_SIZE;
+    private Integer pageSize;
 
     public PageEntity(Integer pageNum, Integer pageSize) {
         this.pageNum = pageNum;

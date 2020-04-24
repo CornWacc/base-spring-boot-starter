@@ -9,9 +9,18 @@ import com.base.pojo.service.Base;
  */
 public class PageAo extends Base {
 
-    private Integer pageNum;
+    private static final Integer DEFAULT_PAGE_NUM = 1;
 
-    private Integer pageSize;
+    private static final Integer DEFAULT_PAGE_SIZE = 10;
+
+    private Integer pageNum = DEFAULT_PAGE_NUM;
+
+    private Integer pageSize = DEFAULT_PAGE_SIZE;
+
+    public PageAo(Integer pageNum, Integer pageSize) {
+        this.pageNum = pageNum;
+        this.pageSize = pageSize;
+    }
 
     public Integer getPageNum() {
         return pageNum;
