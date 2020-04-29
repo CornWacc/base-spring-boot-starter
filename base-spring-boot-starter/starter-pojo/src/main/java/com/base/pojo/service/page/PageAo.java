@@ -17,6 +17,19 @@ public class PageAo extends Base {
 
     private Integer pageSize = DEFAULT_PAGE_SIZE;
 
+    private String keyWord;
+
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
+    }
+
+    public PageAo() {
+    }
+
     public PageAo(Integer pageNum, Integer pageSize) {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
