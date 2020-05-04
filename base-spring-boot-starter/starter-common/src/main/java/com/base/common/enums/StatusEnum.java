@@ -9,6 +9,7 @@ public enum StatusEnum {
 
     SUCCESS("SUCCESS","成功",200),
     ERROR("ERROR","失败",500),
+    UNAUTHOR("UNAUTHOR","未登录",401),
     ROLEFAIL("ROLEFAIL","权限认证失败",403),
     FAIL("FAIL","系统繁忙",501);
 
