@@ -1,7 +1,7 @@
 package com.base.pojo.web;
 
 import com.base.common.enums.StatusEnum;
-import com.base.pojo.service.BaseResult;
+import com.base.common.service.BaseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

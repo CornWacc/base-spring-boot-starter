@@ -1,6 +1,6 @@
-package com.base.pojo.service.page;
+package com.base.common.service.page;
 
-import com.base.pojo.service.Base;
+import com.base.common.service.Base;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;

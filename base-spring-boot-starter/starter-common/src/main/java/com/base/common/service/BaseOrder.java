@@ -1,4 +1,4 @@
-package com.base.pojo.service;
+package com.base.common.service;
 
 import com.base.common.enums.ValidationFactory;
 import com.base.common.error.BizError;

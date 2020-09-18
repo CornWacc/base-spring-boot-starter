@@ -1,8 +1,6 @@
-package com.base.pojo.service;
+package com.base.common.service;
 
 import com.base.common.enums.StatusEnum;
-
-import java.io.Serializable;
 
 /**
  * @author yyc

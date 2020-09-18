@@ -1,4 +1,4 @@
-package com.base.pojo.service;
+package com.base.common.service;
 
 import com.base.common.annotation.DoTranscation;
 import com.base.common.enums.StatusEnum;

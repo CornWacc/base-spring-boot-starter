@@ -1,7 +1,6 @@
-package com.base.pojo.service.page;
+package com.base.common.service.page;
 
-import com.base.pojo.service.BaseOrder;
-import com.github.pagehelper.Page;
+import com.base.common.service.BaseOrder;
 
 /**
  * @author yyc
