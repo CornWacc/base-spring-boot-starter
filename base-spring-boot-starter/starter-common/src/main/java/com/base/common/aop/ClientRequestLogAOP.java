@@ -1,6 +1,7 @@
 package com.base.common.aop;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.base.common.annotation.ClientApiRequestLog;
 import com.base.common.service.BaseResult;
 import org.apache.commons.pool2.BaseObject;
@@ -23,11 +24,12 @@ public class ClientRequestLogAOP {
     }
 
     @Around("point() && @annotation(requestLog)")
-    public void doAround(ProceedingJoinPoint joinPoint,ClientApiRequestLog requestLog) throws Throwable {
+    public BaseResult doAround(ProceedingJoinPoint joinPoint,ClientApiRequestLog requestLog) throws Throwable {
 
         log.info(requestLog.msg()+"请求入参:{}",JSON.toJSONString(joinPoint.getArgs()));
         BaseResult object = (BaseResult) joinPoint.proceed();
-        log.info(requestLog.msg()+"请求回调:{}", JSON.toJSONString(object));
+        log.info(requestLog.msg()+"请求回调:{}", JSON.toJSONString(object, SerializerFeature.WriteMapNullValue));
+        return object;
     }
 
 }
