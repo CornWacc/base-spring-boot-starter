@@ -3,6 +3,7 @@ package com.base.common.autoconfiguration;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,7 @@ public class DataSourceAutoConfiguration {
 
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         try {
+            sqlSessionFactoryBean.setVfs(SpringBootVFS.class);
             if(!ObjectUtils.isEmpty(dataSource.getConnection())){
                 sqlSessionFactoryBean.setDataSource(dataSource);
                 PathMatchingResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
