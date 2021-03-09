@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <version>1.1-SNAPSHOT</version>
     <artifactId>starter-pojo</artifactId>
 
     <packaging>jar</packaging>
