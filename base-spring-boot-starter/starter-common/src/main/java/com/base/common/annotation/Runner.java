@@ -1,7 +1,9 @@
 package com.base.common.annotation;
 
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.*;
 
